@@ -1,0 +1,18 @@
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+import { environment } from '../../environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class CommonService {
+  constructor(private http: HttpClient) { }
+
+  testWebApiConnection()  {
+
+    return this.http.get(environment.apiUrl, {responseType: 'text', observe: 'response'});
+  }
+
+}
